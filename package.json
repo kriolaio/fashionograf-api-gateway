@@ -1,0 +1,38 @@
+{
+  "name": "fashionograf-api-gateway",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "precommit": "pretty-quick --staged",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kriolaio/fashionograf-api-gateway.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kriolaio/fashionograf-api-gateway/issues"
+  },
+  "homepage": "https://github.com/kriolaio/fashionograf-api-gateway#readme",
+  "dependencies": {
+    "apollo-server": "^2.1.0",
+    "graphql": "^14.0.2"
+  },
+  "devDependencies": {
+    "babel-eslint": "^9.0.0",
+    "eslint": "^5.6.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-plugin-flowtype": "^2.50.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-prettier": "^2.6.2",
+    "husky": "^1.0.0-rc.15",
+    "lint-staged": "^7.3.0",
+    "prettier": "^1.14.3",
+    "pretty-quick": "^1.7.0"
+  }
+}
