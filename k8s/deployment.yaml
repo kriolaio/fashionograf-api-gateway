@@ -1,0 +1,17 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: fashionograf-api-gateway-deployment
+spec:
+  replicas: 2
+  template:
+    metadata:
+      name: fashionograf-api-gateway
+      labels:
+        app: fashionograf-api-gateway
+    spec:
+      containers:
+        - image: kriola/fashionograf-api-gateway:52d7918
+          name: fashionograf-api-gateway-container
+          ports:
+            - containerPort: 4000
