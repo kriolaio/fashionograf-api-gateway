@@ -13,5 +13,8 @@ spec:
       containers:
         - image: kriola/fashionograf-api-gateway:52d7918
           name: fashionograf-api-gateway-container
+          envFrom:
+            - configMapRef:
+                name: api-gateway-config
           ports:
             - containerPort: 4000

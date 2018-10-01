@@ -1,4 +1,5 @@
 const { ApolloServer, gql } = require("apollo-server");
+const https = require("https");
 
 // This is a (sample) collection of books we'll be able to query
 // the GraphQL server for.  A more complete example might fetch
@@ -42,12 +43,16 @@ const typeDefs = gql`
     name: String
     surname: String
   }
+  type Temp {
+    foo: String
+  }
 
   # The "Query" type is the root of all GraphQL queries.
   # (A "Mutation" type will be covered later on.)
   type Query {
     books: [Book]
     authors: [Author]
+    temp: Temp
   }
 `;
 
@@ -56,7 +61,8 @@ const typeDefs = gql`
 const resolvers = {
   Query: {
     books: () => books,
-    authors: () => authors
+    authors: () => authors,
+    temp: () => https.get(`${process.env.AUTHENTICATION_URL}/signup`)
   }
 };
 
