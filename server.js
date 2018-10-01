@@ -1,5 +1,5 @@
 const { ApolloServer, gql } = require("apollo-server");
-const https = require("https");
+const fetch = require("node-fetch");
 
 // This is a (sample) collection of books we'll be able to query
 // the GraphQL server for.  A more complete example might fetch
@@ -63,9 +63,9 @@ const resolvers = {
     books: () => books,
     authors: () => authors,
     temp: () =>
-      https
-        .get(`https://${process.env.AUTHENTICATION_URL}/signup`)
-        .then(res => res.json())
+      fetch(`https://${process.env.AUTHENTICATION_URL}/signup`).then(res =>
+        res.json()
+      )
   }
 };
 

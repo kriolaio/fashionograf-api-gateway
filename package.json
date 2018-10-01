@@ -20,7 +20,8 @@
   "homepage": "https://github.com/kriolaio/fashionograf-api-gateway#readme",
   "dependencies": {
     "apollo-server": "^2.1.0",
-    "graphql": "^14.0.2"
+    "graphql": "^14.0.2",
+    "node-fetch": "^2.2.0"
   },
   "devDependencies": {
     "babel-eslint": "^9.0.0",
