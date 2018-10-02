@@ -1,5 +1,5 @@
 const { ApolloServer, gql } = require("apollo-server");
-const fetch = require("node-fetch");
+const axios = require("axios");
 
 // This is a (sample) collection of books we'll be able to query
 // the GraphQL server for.  A more complete example might fetch
@@ -62,8 +62,7 @@ const resolvers = {
   Query: {
     books: () => books,
     authors: () => authors,
-    temp: () =>
-      fetch(`${process.env.AUTHENTICATION_URL}/signup`).then(res => res.json())
+    temp: () => axios.get(`${process.env.AUTHENTICATION_URL}/signup`)
   }
 };
 
