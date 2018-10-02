@@ -62,7 +62,7 @@ const resolvers = {
   Query: {
     books: () => books,
     authors: () => authors,
-    temp: () => https.get(`${process.env.AUTHENTICATION_URL}/signup`)
+    temp: () => https.get(`http://${process.env.AUTHENTICATION_URL}/signup`)
   }
 };
 
