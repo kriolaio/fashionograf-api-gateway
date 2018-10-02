@@ -62,7 +62,14 @@ const resolvers = {
   Query: {
     books: () => books,
     authors: () => authors,
-    temp: () => axios.get(`${process.env.AUTHENTICATION_URL}/signup`)
+    temp: () =>
+      axios
+        .get(`${process.env.AUTHENTICATION_URL}/signup`)
+        .then(response => {
+          console.log("XXXXXXXXXXXXXXXXXXXXXXXXXXXx");
+          console.log(response);
+        })
+        .then(response => JSON.parse(response))
   }
 };
 
