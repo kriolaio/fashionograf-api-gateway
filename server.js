@@ -1,5 +1,5 @@
 const { ApolloServer, gql } = require("apollo-server");
-const rp = require("request-promise");
+const http = require("http");
 
 // This is a (sample) collection of books we'll be able to query
 // the GraphQL server for.  A more complete example might fetch
@@ -63,15 +63,31 @@ const resolvers = {
     books: () => books,
     authors: () => authors,
     temp: async () => {
-      const result = await rp(`${process.env.AUTHENTICATION_URL}/signup`)
-        .then(response => {
-          console.log("XXXXXXXXXXXXXXXXXXXXXXXXXXXx");
-          console.log(response);
+      // const result = await rp()
+      //   .then(response => {
+      //     console.log("XXXXXXXXXXXXXXXXXXXXXXXXXXXx");
+      //     console.log(response);
+      //   })
+      //   .then(response => response.json())
+      //   .then(response => JSON.parse(response));
+      // console.log(result);
+      // return result;
+      const options = {
+        host: `${process.env.AUTHENTICATION_URL}`,
+        port: 80,
+        path: "/signup",
+        method: "GET"
+      };
+      http
+        .request(options, res => {
+          console.log(`STATUS: ${res.statusCode}`);
+          console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
+          res.setEncoding("utf8");
+          res.on("data", chunk => {
+            console.log(`BODY: ${chunk}`);
+          });
         })
-        .then(response => response.json())
-        .then(response => JSON.parse(response));
-      console.log(result);
-      return result;
+        .end();
     }
   }
 };
