@@ -63,9 +63,7 @@ const resolvers = {
     books: () => books,
     authors: () => authors,
     temp: () =>
-      fetch(`https://${process.env.AUTHENTICATION_URL}/signup`).then(res =>
-        res.json()
-      )
+      fetch(`${process.env.AUTHENTICATION_URL}/signup`).then(res => res.json())
   }
 };
 
