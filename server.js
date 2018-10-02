@@ -65,6 +65,7 @@ const resolvers = {
     temp: () =>
       axios
         .get(`${process.env.AUTHENTICATION_URL}/signup`)
+        .then(response => response.json())
         .then(response => {
           console.log("XXXXXXXXXXXXXXXXXXXXXXXXXXXx");
           console.log(response);
