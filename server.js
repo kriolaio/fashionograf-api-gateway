@@ -62,18 +62,17 @@ const resolvers = {
   Query: {
     books: () => books,
     authors: () => authors,
-    temp: async () => {
-      const result = await axios
-        .get(`${process.env.AUTHENTICATION_URL}/signup`)
-        .then(response => response.json())
-        .then(response => {
-          console.log("XXXXXXXXXXXXXXXXXXXXXXXXXXXx");
-          console.log(response);
-        })
-        .then(response => JSON.parse(response));
-      console.log(result);
-      return { foo: "xxx" };
-    }
+    temp: async () =>
+      // const result = await axios
+      //   .get(`${process.env.AUTHENTICATION_URL}/signup`)
+      //   .then(response => response.json())
+      //   .then(response => {
+      //     console.log("XXXXXXXXXXXXXXXXXXXXXXXXXXXx");
+      //     console.log(response);
+      //   })
+      //   .then(response => JSON.parse(response));
+      // console.log(result);
+      ({ foo: "xxx" })
   }
 };
 
