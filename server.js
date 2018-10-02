@@ -67,7 +67,6 @@ const resolvers = {
         `http://${process.env.AUTHENTICATION_URL}/signup`
       );
       const json = await response.json();
-      console.log(json);
       return json;
     }
   }
