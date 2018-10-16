@@ -1,9 +1,6 @@
-const { ApolloServer, gql } = require("apollo-server");
-const fetch = require("node-fetch");
+const app = require("./app");
 
-// This is a (sample) collection of books we'll be able to query
-// the GraphQL server for.  A more complete example might fetch
-// from an existing data source like a REST API or database.
+const { PORT } = process.env;
 
 const PORT = 4000;
 
