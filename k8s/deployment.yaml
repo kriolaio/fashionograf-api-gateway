@@ -16,7 +16,7 @@ spec:
           name: api-gateway-container
           envFrom:
             - configMapRef:
-                name: api-gateway-config
+                name: api-gateway
           ports:
             - containerPort: 4000
               name: api-gateway
