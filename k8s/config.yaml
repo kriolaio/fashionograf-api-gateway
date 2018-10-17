@@ -5,4 +5,4 @@ metadata:
 data:
   AUTHENTICATION_URL: authentication-service
   NODE_ENV: production
-  PORT: 4000
+  PORT: "4000"
