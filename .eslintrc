@@ -1,17 +1,24 @@
 {
     "parser": "babel-eslint",
-    "extends": ["airbnb-base", "plugin:prettier/recommended", "plugin:flowtype/recommended"],
+    "extends": [
+        "airbnb-base",
+        "plugin:prettier/recommended",
+        "plugin:flowtype/recommended",
+        "plugin:jest/recommended"
+    ],
     "plugins": [
-        "flowtype"
+        "flowtype",
+        "jest"
     ],
     "rules": {
-        "linebreak-style": 0
+        "linebreak-style": 0,
+        "no-console": "off"
     },
     "parserOptions": {
         "ecmaVersion": 6
     },
     "env": {
-        "jest": true,
+        "jest/globals": true,
         "node": true
     }
 }

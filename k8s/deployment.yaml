@@ -1,9 +1,9 @@
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: fashionograf-api-gateway-deployment
+  name: fashionograf-api-gateway
 spec:
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       name: fashionograf-api-gateway
@@ -12,10 +12,18 @@ spec:
     spec:
       containers:
         - image: kriola/fashionograf-api-gateway:01c4889
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           name: fashionograf-api-gateway-container
           envFrom:
             - configMapRef:
                 name: api-gateway-config
           ports:
             - containerPort: 4000
+              name: fashionograf-api-gateway-port
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /.well-known/apollo/server-health
+              port: 4000
+              initialDelaySeconds: 20
+              periodSeconds: 20
