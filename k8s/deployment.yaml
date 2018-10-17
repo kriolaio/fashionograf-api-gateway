@@ -11,7 +11,7 @@ spec:
         app: fashionograf-api-gateway
     spec:
       containers:
-        - image: kriola/fashionograf-api-gateway:01c4889
+        - image: kriola/fashionograf-api-gateway:6dbf207
           imagePullPolicy: IfNotPresent
           name: fashionograf-api-gateway-container
           envFrom:
